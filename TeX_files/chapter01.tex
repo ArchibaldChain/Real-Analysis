@@ -1,0 +1,55 @@
+\chapter{Cardinality}
+\newtheorem*{myDef}{Definition}
+\newtheorem*{myTheo}{Theorem}
+\newtheorem*{myPf}{Proof}
+\newtheorem*{myLemma}{Lemma}
+\begin{myDef}[Cardinality]
+Let $A$, $B$ be two (non-empty) sets, we say  $\abs{A}\leq\abs{B}$ if there exists a injective map $f:\ A\rightarrow B$
+\end{myDef}
+
+
+\begin{myLemma}[Set Decomposition Under Mapping]
+	Let $f: X\rightarrow Y,\ g: Y\rightarrow X$ there exists decomposition such that,
+	\[X = A\cup A^{\sim}, Y=B\cup B^{\sim}\]
+	where $f(A)=B, g(B^\sim)=A^\sim, A\cap A^\sim=\emptyset$ and $B\cap B^\sim=\emptyset$
+\end{myLemma}
+\begin{myPf}
+	For a subset $E$ of $X$, W.O.L.G. $Y\backslash f(E)\neq\emptyset$, if $E$ satisfy,
+	\[E\cap g(Y\backslash f(E))=\emptyset\]
+	we call $E$ a seperate set of $X$, now denote the set of all seperate set as $\Upgamma$, and make union,
+	\[A=\bigcup_{E\in \Upgamma}E\]
+	We have $A\in \Upgamma$, Actually for any $E\in \Upgamma$, as $A\supset E$, so from,
+	\[E\cap g(Y\backslash f(E))=\emptyset\]
+	we know that $E\cap g(Y\backslash f(A))=\emptyset$, since $A$ is larger than $E$, so actually $g(Y\backslash f(A))\subseteq g(Y\backslash f(E))$, thus $A\cap g(Y\backslash f(A))=\emptyset$. This shows that $A$ is also a seperate set in $X$ and the largest element in $\Upgamma$.
+	\\
+	Now let $f(A)=B, Y\backslash B=B^\sim$ and $g(B^\sim)=A^\sim$. First we know that.
+	\[Y=B\cup B^\sim\]
+	Secondly, as $A\cap A^\sim=\emptyset\Leftrightarrow A\cap g(Y\backslash f(A))=\emptyset$, so we know $A\cup A^\sim=X$.
+	\\
+	We can assume $A\cup A^\sim \neq X$, then there exists $x_0\in X$ such that $x_0\notin A\cup A^\sim$. Let $A_0=A\cup {x_0}$ we have,
+	\[B=f(A)\subset f(A_0), B^\sim \supset Y\backslash f(A_0)\]
+	so that $A^\sim \supset g(Y\backslash f(A_0))$, which means $A$ and $g(Y\backslash f(A_0))$ do not intersect. So
+	\[A_0\cap g(Y\backslash f(A_0))=\emptyset\]
+	\\($A_0$多了一个元素$x_0$，但该元素在$A^\sim$ 中不存在并且$A^\sim \supset A_0^\sim=g(B_0^\sim) = g(Y\backslash f(A_0))$)
+	which is contradict to $A$ is the largest element in $\Upgamma$
+\end{myPf}
+\begin{myTheo}[Schröder–Bernstein theorem]
+	If $\abs{X}\leq\abs{Y}$ and $\abs{Y}\leq\abs{X}$, then $\abs{X}=\abs{Y}$
+\end{myTheo}
+\begin{myPf}
+	We need to show if there exists an injective map $f: X\rightarrow Y$ and an injective map $g: Y\rightarrow X$ then there exists a bijective map $h: X\rightarrow Y$.
+	\newline
+	\newline
+	Define $X=A\cup A^\sim, Y=B\cup B^\sim, f(A)=B(Surjective\ to\ B), g(B^\sim)=A^\sim(Surjective\ to\ A^\sim)$(Using decomposition lemma)
+	\newline
+	For any $a\in X$, define a map $h$.
+	\[
+	h(x)=\left.
+	\begin{cases}
+	f(x) & x\in A\\
+	g^{-1}(x) & x\in A^\sim
+	\end{cases}
+	\right.
+	\]
+	which shows $X\sim Y$
+\end{myPf}
