@@ -4,6 +4,8 @@
 \newtheorem*{myPf}{Proof}
 \newtheorem*{myLemma}{Lemma}
 \newtheorem*{myProp}{Proposal}
+
+\section{Cardinal Number}
 \begin{myDef}[Cardinality]
 Let $A$, $B$ be two (non-empty) sets, we say  $\abs{A}\leq\abs{B}$ if there exists a injective map $f:\ A\rightarrow B$
 \\
@@ -104,3 +106,23 @@ We say $\abs{A} = \abs{B} $
 	\\
 	Therefore, such bijective map $\phi$ does not exist.
 \end{myTheo}
+\section{Construct Real Number}
+With Cauchy sequence, we can define real number (almost) as a sequence of rational number approximating a `real number'. But we still need to deal with different Cauchy sequences converging to the same number. Hence we will need to group Cauchy sequences into sets, all of which have the same `tail behavior', and we will define a real number to be such a \emph{a set of Cauchy sequences}.
+\begin{myDef}[Equivalence Relation]
+	Let S be a set of objects. A relation among pairs of elements of S is said to be an \textbf{equivalence relation} if the following three properties hold:
+	\begin{enumerate}
+		\item Reflexivity: $\forall s\in S$, $s$ is related to $s$.
+		\item Symmetry: $\forall s, t \in S$, if $s$ is related to $t$, then $t$ is related to $s$.
+		\item Transitivity: $\forall s,t,r \in S$, if $s$ is related to $t$ and $t$ is related to $r$, then $s$ is related to $r$.
+	\end{enumerate}
+\end{myDef}
+\begin{myTheo}
+	Let $S$ be a set, with an equivalence relation on pairs of elements. For $s\in S$, denote by $[s]$ the set of all elements in $S$ that are related to $s$. Then for any $s,t\in S$, either $[s]=[t]$ or $[s]$ and $[t]$ are disjoint.(Proof is skipped, quite trivial, just suppose there exists $r\in [s]$ and $r\in [t]$)
+\end{myTheo}
+\begin{myDef}[Real Number]
+	Real numbers are constructed as \textbf{equivalence classes of Cauchy sequence}.
+\end{myDef}
+Let $\mathscr{C}_\mathbb{Q}$ denote the set of all Cauchy sequences of rational numbers. We must define an equivalence relation on $\mathscr{C}_\mathbb{Q}$.
+\begin{myDef}
+	Let $(a_n)$ and $(b_n)$ be in $\mathscr{C}_\mathbb{Q}$. Say they are equivalent (i.e related) if $a_n-b_n\rightarrow 0$. i.e. if the sequence $(a_n-b_n)$ tends to $0$.
+\end{myDef}
