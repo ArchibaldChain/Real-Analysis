@@ -3,8 +3,13 @@
 \newtheorem*{myTheo}{Theorem}
 \newtheorem*{myPf}{Proof}
 \newtheorem*{myLemma}{Lemma}
+\newtheorem*{myProp}{Proposal}
 \begin{myDef}[Cardinality]
 Let $A$, $B$ be two (non-empty) sets, we say  $\abs{A}\leq\abs{B}$ if there exists a injective map $f:\ A\rightarrow B$
+\\
+Similarly we have $\abs{A}\leq \abs{B} \Leftrightarrow$ there exists a surjective map $g: B\rightarrow A$
+\\
+We say $\abs{A} = \abs{B} $
 \end{myDef}
 
 
@@ -53,3 +58,49 @@ Let $A$, $B$ be two (non-empty) sets, we say  $\abs{A}\leq\abs{B}$ if there exis
 	\]
 	which shows $X\sim Y$
 \end{myPf}
+\begin{myDef}[Arithmetic Operation of Cardinal Number]
+	Suppose $a$, $b$ are two cardinal numbers, where $a=\abs{A}$, $b=\abs{B}$.
+	\begin{enumerate}
+		\item $a+b\triangleq\abs{A\cup B}$ where $A$, $B$ are disjoint sets.
+		\item $a\cdot b\triangleq \abs{A\times B}$
+		\item $a^b=\abs{A^B}=\prod_{B}A$ where $A^B=\{\text{all maps }\phi: B\rightarrow A\}$
+	\end{enumerate}
+\end{myDef}
+\begin{myProp}
+	$c=m^{\aleph_0}, \forall m\in \mathbb{N}, m\geq2$
+\end{myProp}
+\begin{myPf}
+	We view R.H.S. as $\abs{\{0,1,2,...,m-1\}^{\mathbb{N}}}=\abs{\{f:\mathbb{N}\rightarrow\{0,1,...,m-1\}\}}$. Actually, R.H.S. can be viewed as a map from $i_{th}$ digit index to the $i_{th}$ digit itself and L.H.S. as $\abs{(0,1]}$.
+	\\
+	Recall that $\forall r \in (0,1]$ we have a sequence $\{r_n\}$, each $r_n\in\{0,1,...,m-1\}$ such that
+	\[r=\sum_{n=1}^{\infty}\frac{r_n}{m_n}\]
+	(闭区间套: the principle of nested intervals)
+	\\
+	The sequence $\{r_n\}$ is unique if we require it has infinite many non-zero numbers.
+	\\
+	This means that we have an injective map.
+	\[\Upphi: (0,1] \rightarrow \{0,1,...,m-1\}^\mathbb{N}\]
+	\[Im\Upphi=\{\text{f: there are infinitely many $n$ with $f(n)\neq0$}\}\]
+	Let $A_N=\{f:\exists\ N\ s.t.\ f(n)=0\ \forall n>N\}$, so $\abs{A_N}=m^N<\infty$
+	\[\abs{(Im\Upphi)^\complement}=\abs{\bigcup_{N=0}^\infty A_N}=\aleph_0\]
+	So, now we have shown,
+	\[L.H.S.=c=c+\aleph_0=m^\aleph_0=R.H.S.\]
+\end{myPf}
+\begin{myDef}[Power Set]
+	$P(A)\triangleq \{subsets\ of\ A\}\triangleq\{0,1\}^A=\{f: A\rightarrow \{0,1\}\}$
+\end{myDef}
+\begin{myTheo}[$P(A)>\abs{A}$]
+	First, $P(A)\geq\abs{A}$, because there exists a injective map $f: a\rightarrow \{a\}$. we will show $\abs{P(A)}\neq \abs{A}$, hence $\abs{P(A)}>\abs{A}$.
+	\\
+	Otherwise, $\abs{P(A)}=\abs{A}$ and hence there exists a bijective map $\phi: A\rightarrow P(A)$.
+	\\
+	Consider the subset $B=\{a\in A|a\notin \phi(a)\}$, thus $B\in P(A)$.
+	\\
+	Let $b$ be the pre-image of $B$ under $\phi$.
+	\\
+	If $b\in B$ then by the construction of $B$, then $b\notin \phi(b)=B$.
+	\\
+	If $b\notin B$ then by the construction of $B$, then $b\in \phi(b)=B$.
+	\\
+	Therefore, such bijective map $\phi$ does not exist.
+\end{myTheo}
